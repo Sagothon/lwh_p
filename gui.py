@@ -12,16 +12,23 @@ class Window(QWidget):
         self.tab.append(widget)
 
     def licz(self):
-        print(len(self.tab))
         for i in self.tab:
-            print(i.ed1.displayText())
-            
+            activity = i.ed1.displayText()
+            how_long = i.ed2.displayText()
+            how_long = int(how_long)
+            sequence = i.ed3.displayText()
+            graph.add_Edge(self.Graph, int(sequence[0]), int(sequence[2]), how_long)
+        nx.set_node_attributes(self.Graph, 't1', 0)
+        nx.set_node_attributes(self.Graph, 't2', 0)
+        nx.set_node_attributes(self.Graph, 'luz', 0)
+        nx.set_node_attributes(self.Graph, 'from', 0)
+        graph.CPM(self.Graph)
 
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)
 
         self.Graph = nx.DiGraph()
-        #createGraph(Graph)
+
 
         self.tab = []
         self.layout = QVBoxLayout()
@@ -47,9 +54,9 @@ class Group(QGroupBox):
         
     def initGroup(self):
         hbox = QHBoxLayout()
-        self.ed1 = QLineEdit("dsfdsfd")
-        self.ed2 = QLineEdit("fdf")
-        self.ed3 = QLineEdit("ddddd")
+        self.ed1 = QLineEdit()
+        self.ed2 = QLineEdit()
+        self.ed3 = QLineEdit()
         hbox.addWidget(self.ed1)
         hbox.addWidget(self.ed2)
         hbox.addWidget(self.ed3)

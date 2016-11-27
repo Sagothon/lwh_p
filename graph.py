@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 #===================== GRAF ==============================
 
 def createGraph(G):
-
-	G = nx.DiGraph()
 	nx.set_node_attributes(G, 't1', 0)
 	nx.set_node_attributes(G, 't2', 0)
 	nx.set_node_attributes(G, 'luz', 0)
@@ -20,8 +18,9 @@ def createGraph(G):
 #G.add_edge(7,8, weight=1)
 #G.add_edge(8,9, weight=2)
 
-def add_Edge(fro, to, weigh):
+def add_Edge(G, fro, to, weigh):
 	G.add_edge(fro,to, weight=weigh)
+	print(fro, to, weigh)
 
 #================================= algorytm przechodzenia grafu po najdłuższych ścieżkach ======================================
 # po drodze uzupełniam wartości 't1'
@@ -29,7 +28,7 @@ def add_Edge(fro, to, weigh):
 def CPM(G):
 	visited = [] #lista odwiedzonych wierzchołków
 	unvisited = G.nodes() #lista wierzchołków do odwiedzenia	
-
+	print(unvisited)
 	while unvisited:            #pętla dopóki jest coś nieodwiedzonego
 	    node = unvisited[0]        #biorę kolejne nieodwiedzone wierchołki
 	    for successor in G.successors_iter(node):         #iteracja po sąsiadach noda
