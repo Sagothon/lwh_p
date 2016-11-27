@@ -55,8 +55,11 @@ class Group(QGroupBox):
     def initGroup(self):
         hbox = QHBoxLayout()
         self.ed1 = QLineEdit()
+        self.ed1.setPlaceholderText("nazwa czynności")
         self.ed2 = QLineEdit()
+        self.ed2.setPlaceholderText("czas trwania")
         self.ed3 = QLineEdit()
+        self.ed3.setPlaceholderText("kolejność zdarzeń")
         hbox.addWidget(self.ed1)
         hbox.addWidget(self.ed2)
         hbox.addWidget(self.ed3)
