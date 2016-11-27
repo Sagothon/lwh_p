@@ -1,4 +1,3 @@
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QVBoxLayout, QApplication, QGroupBox, QPushButton, QHBoxLayout, QWidget, QLineEdit)
 import graph
 import networkx as nx
