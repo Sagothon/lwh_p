@@ -21,7 +21,7 @@ class Window(QWidget):
         nx.set_node_attributes(self.Graph, 't2', 0)
         nx.set_node_attributes(self.Graph, 'luz', 0)
         nx.set_node_attributes(self.Graph, 'from', 0)
-        graph.CPM(self.Graph)
+        graph.PERT(self.Graph)
 
     def __init__(self, parent=None):
         super(Window, self).__init__(parent)

@@ -17,9 +17,10 @@ def add_Edge(G, fro, to, weigh):
 # ================================= algorytm przechodzenia grafu po najdłuższych ścieżkach ======================================
 # po drodze uzupełniam wartości 't1'
 
-def CPM(G):
-    visited = []  # lista odwiedzonych wierzchołków
-    unvisited = G.nodes()  # lista wierzchołków do odwiedzenia
+def PERT(G):
+    visited = []  # lista odwiedzonych wierzchołków  
+    unvisited = nx.topological_sort(G) # lista wierzchołków do odwiedzenia
+    print(unvisited)
     while unvisited:  # pętla dopóki jest coś nieodwiedzonego
         node = unvisited[0]  # biorę kolejne nieodwiedzone wierchołki
         for successor in G.successors_iter(node):  # iteracja po sąsiadach noda
